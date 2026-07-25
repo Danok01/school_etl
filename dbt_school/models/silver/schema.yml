@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: int_student_enrollments
+    columns:
+      - name: enrollment_id
+        tests:
+          - not_null
+          - unique
+
+      # Referential Integrity Check (Foreign Key to Students)
+      - name: student_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_students')
+              field: student_id
+
+      # Referential Integrity Check (Foreign Key to Courses)
+      - name: course_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_courses')
+              field: course_id
+
+      # Value Set Constraint
+      - name: letter_grade
+        tests:
+          - accepted_values:
+              values: ['A', 'B', 'C', 'D', 'F']

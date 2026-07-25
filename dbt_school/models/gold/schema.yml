@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dim_students
+    columns:
+      - name: student_id
+        tests:
+          - not_null
+          - unique
+
+  - name: fct_student_performance
+    columns:
+      - name: course_id
+        tests:
+          - not_null
+          - unique

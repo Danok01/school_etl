@@ -1,0 +1,12 @@
+docker-compose.yml
+.env
+profiles.yml
+*.pem
+__pycache__/
+*.pyc
+venv/
+.venv/
+target/
+dbt_packages/
+dbt_modules/
+logs/

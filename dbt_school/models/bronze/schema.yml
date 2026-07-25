@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: raw_school
+    database: school_db
+    schema: public
+    tables:
+      - name: raw_students
+        columns:
+          - name: id
+            tests:
+              - not_null
+              - unique
+      - name: raw_courses
+        columns:
+          - name: course_id
+            tests:
+              - not_null
+              - unique
+
+models:
+  - name: stg_students
+    columns:
+      - name: student_id
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_courses
+    columns:
+      - name: course_id
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_enrollments
+    columns:
+      - name: enrollment_id
+        tests:
+          - not_null
+          - unique
