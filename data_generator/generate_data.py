@@ -3,11 +3,17 @@ from datetime import datetime, timedelta
 from faker import Faker
 import pandas as pd
 from sqlalchemy import create_engine
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+url = os.getenv("URL")
 
 fake = Faker()
 
+
 # Database Connection
-ENGINE = create_engine("postgresql://school_user:school_password@localhost:5432/school_db")
+ENGINE = create_engine(url)
 
 NUM_STUDENTS = 200
 NUM_COURSES = 10
